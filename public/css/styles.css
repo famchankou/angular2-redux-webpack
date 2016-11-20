@@ -1,0 +1,49 @@
+.tasks-list {
+    width: 500px;
+    position: absolute;
+    left: 23%;
+    top: 10%;
+}
+
+.tasks-list__header {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.tasks-list__items {
+    list-style: none;
+    padding: 5px;
+}
+
+.tasks-list__item {
+    display: inline-block;
+    width: 100%;
+}
+
+.tasks-list__icon {
+    cursor: pointer;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+.cross-out-text {
+    text-decoration: line-through;
+}
+
+.tasks-list__input {
+    display: inline-block;
+    min-width: 325px;
+}
+
+.tasks-list__search {
+    display: inline-block;
+    min-width: 445px;
+    margin: 5px;
+}

@@ -1,0 +1,21 @@
+<sm-input name="search"
+          type="text" [(model)]="term"
+          placeholder="Search..."
+          class="tasks-list__search">
+</sm-input>
+<ul class="tasks-list__items">
+    <li *ngFor="let entry of _store.entries | search:'record':term ">
+        <entry-form-item class="tasks-list__item" [entry]="entry"></entry-form-item>
+    </li>
+</ul>
+<sm-input name="newRecord"
+          type="text" [(model)]="newRecord"
+          placeholder="Enter a task..."
+          (keyup.enter)="addEntry(newRecord)"
+          class="tasks-list__input">
+</sm-input>
+<sm-button type="submit"
+           class="primary basic"
+           (click)="addEntry(newRecord)">
+    Add New Entry
+</sm-button>

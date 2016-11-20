@@ -1,0 +1,8 @@
+<span>
+    <i class="tasks-list__icon left checkmark icon"
+       [class.box]="entry.completed"
+       (click)="updateEntry(entry.id, entry.record, entry.completed)"></i>
+    <span [class.cross-out-text]="entry.completed">{{entry.record}}</span>
+    <i class="tasks-list__icon right remove icon" (click)="removeEntry(entry.id)"></i>
+</span>
+<div class="ui divider"></div>
