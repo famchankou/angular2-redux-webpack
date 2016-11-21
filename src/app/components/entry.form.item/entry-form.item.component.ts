@@ -4,7 +4,7 @@ import { Entry } from "../../services/app.state";
 @Component({
     selector: 'entry-form-item',
     templateUrl: './templates/entry.form.item.html',
-    styles: [require('!raw!less!./less/entry-form.item.less')]
+    styles: [require('!raw!less!./less/entry.form.item.less')]
 })
 
 export class EntryFormItemComponent {
