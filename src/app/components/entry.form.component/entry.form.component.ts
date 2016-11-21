@@ -20,18 +20,18 @@ export class EntryFormComponent implements OnInit {
 
     public ngOnInit(): void { }
 
-    public addEntry(newRecord: string): void {
-        if (!newRecord) return;
-        this._dataService.addTaskEntry(newRecord);
-        this.newRecord = null;
-    }
-
     public getNotification(evt: any): void {
         if (typeof evt !== 'object') {
             this.removeEntry(evt);
         } else {
             this.updateEntry(evt.id, evt.record, evt.completed);
         }
+    }
+
+    public addEntry(newRecord: string): void {
+        if (!newRecord) return;
+        this._dataService.addTaskEntry(newRecord);
+        this.newRecord = null;
     }
 
     public removeEntry(id: string): void {

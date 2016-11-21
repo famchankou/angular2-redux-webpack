@@ -1,8 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { removeEntry, updateEntry } from '../../actions/entry.actions';
-import { Entry, EntryStore, DEFAULT_ENTRIES } from "../../services/app.state";
-import { DataService } from '../../services/app.data.service';
+import { Entry } from "../../services/app.state";
 
 @Component({
     selector: 'entry-form-item',
@@ -12,16 +9,16 @@ import { DataService } from '../../services/app.data.service';
 export class EntryFormItemComponent {
 
     @Input() entry: string;
-    @Output() childAction: EventEmitter<any> = new EventEmitter();
+    @Output() entryAction: EventEmitter<any> = new EventEmitter();
 
-    public constructor(private _dataService: DataService) { }
+    public constructor() { }
 
-    public removeEntry(entry: Entry): void {
-        this.childAction.emit(entry);
+    public removeEntry(id: string): void {
+        this.entryAction.emit(id);
     }
 
-    public updateEntry(id: string): void {
-        this.childAction.emit(id);
+    public updateEntry(entry: Entry): void {
+        this.entryAction.emit(entry);
     }
 
 }

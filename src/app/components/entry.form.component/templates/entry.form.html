@@ -5,7 +5,7 @@
 </sm-input>
 <ul class="tasks-list__items">
     <li *ngFor="let entry of _dataService.getEntries() | search:'record':term ">
-        <entry-form-item class="tasks-list__item" [entry]="entry" (childAction)="getNotification($event)"></entry-form-item>
+        <entry-form-item class="tasks-list__item" [entry]="entry" (entryAction)="getNotification($event)"></entry-form-item>
     </li>
 </ul>
 <sm-input name="newRecord"
