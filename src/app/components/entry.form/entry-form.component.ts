@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { List } from 'immutable';
-import { addEntry } from '../../actions/entry.actions';
-import { Entry, EntryStore, DEFAULT_ENTRIES } from "../../services/app.state";
+import { Entry } from "../../services/app.state";
 import { DataService } from '../../services/app.data.service';
-import { Observable } from "rxjs";
 
 @Component({
     selector: 'entry-form',
@@ -20,16 +17,17 @@ export class EntryFormComponent implements OnInit {
 
     public ngOnInit(): void { }
 
-    public getNotification(evt: any): void {
-        if (typeof evt !== 'object') {
-            this.removeEntry(evt);
-        } else {
-            this.updateEntry(evt.id, evt.record, evt.completed);
-        }
+    public getRemoveEntryAction(id: string): void {
+        this.removeEntry(id);
+    }
+
+    public getUpdateEntryAction(entry: Entry): void {
+        this.updateEntry(entry.id, entry.record, entry.completed);
     }
 
     public addEntry(newRecord: string): void {
-        if (!newRecord) return;
+        if (!newRecord)
+            return;
         this._dataService.addTaskEntry(newRecord);
         this.newRecord = null;
     }

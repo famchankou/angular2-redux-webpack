@@ -9,16 +9,17 @@ import { Entry } from "../../services/app.state";
 export class EntryFormItemComponent {
 
     @Input() entry: string;
-    @Output() entryAction: EventEmitter<any> = new EventEmitter();
+    @Output() removeEntryAction: EventEmitter<any> = new EventEmitter();
+    @Output() updateEntryAction: EventEmitter<any> = new EventEmitter();
 
     public constructor() { }
 
     public removeEntry(id: string): void {
-        this.entryAction.emit(id);
+        this.removeEntryAction.emit(id);
     }
 
     public updateEntry(entry: Entry): void {
-        this.entryAction.emit(entry);
+        this.updateEntryAction.emit(entry);
     }
 
 }

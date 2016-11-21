@@ -1,34 +1,34 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { BrowserModule }  from '@angular/platform-browser';
-import { FormsModule }   from '@angular/forms';
-import { NgSemanticModule } from 'ng-semantic';
+import { BrowserModule }  from "@angular/platform-browser";
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
+import { FormsModule }   from "@angular/forms";
+import { NgSemanticModule } from "ng-semantic";
 
-import { AppComponent } from './components/app/app.component';
-import { EntryFormComponent } from './components/entry.form.component/entry.form.component';
-import { EntryFormItemComponent } from './components/entry.form.item.component/entry.form.item.component';
-import { EntryStore } from './services/app.state';
-import { DataService } from './services/app.data.service';
-import { SearchPipe } from './pipes/search.pipe';
+import { AppComponent } from "./components/app/app.component";
+import { DataService } from "./services/app.data.service";
+import { EntryFormComponent } from "./components/entry.form/entry-form.component";
+import { EntryFormItemComponent } from "./components/entry.form.item/entry-form.item.component";
+import { EntryStore } from "./services/app.state";
+import { SearchPipe } from "./components/pipes/search.pipe";
 
 @NgModule({
-    imports: [
-        BrowserModule,
-        NgSemanticModule,
-        FormsModule
-    ],
+    bootstrap: [ AppComponent ],
     declarations: [
         AppComponent,
         EntryFormComponent,
         EntryFormItemComponent,
-        SearchPipe
+        SearchPipe,
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        NgSemanticModule,
     ],
     providers: [
         EntryStore,
         SearchPipe,
-        DataService
+        DataService,
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    bootstrap: [ AppComponent ]
 })
 
 export class AppModule { }

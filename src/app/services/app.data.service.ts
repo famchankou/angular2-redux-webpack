@@ -31,6 +31,6 @@ export class DataService {
     }
 
     public loadDefaultData(): void {
-        DEFAULT_ENTRIES.forEach(entry => this.addTaskEntry(entry.record));
+        DEFAULT_ENTRIES.forEach((entry) => this.addTaskEntry(entry.record));
     }
 }
