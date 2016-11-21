@@ -5,7 +5,8 @@ import { DataService } from '../../services/app.data.service';
 
 @Component({
     selector: 'entry-form',
-    templateUrl: './templates/entry.form.html'
+    templateUrl: './templates/entry.form.html',
+    styles: [require('!raw!less!./less/entry-form.less')]
 })
 
 export class EntryFormComponent implements OnInit {
