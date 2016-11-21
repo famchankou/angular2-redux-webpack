@@ -11,7 +11,7 @@ module.exports = {
     },
 
     resolve: {
-        extensions: ['', '.ts', '.js']
+        extensions: ['', '.ts', '.js', '.less']
     },
 
     module: {
@@ -37,6 +37,11 @@ module.exports = {
                 test: /\.css$/,
                 include: helpers.root('src', 'app'),
                 loader: 'raw'
+            },
+            {
+                test: /\.less$/,
+                exclude: /node_modules/,
+                loader: 'raw-loader!less-loader'
             }
         ]
     },
