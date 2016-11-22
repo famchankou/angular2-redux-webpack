@@ -1,14 +1,11 @@
 import { Injectable } from '@angular/core';
 import { List } from 'immutable';
 import {addEntry, removeEntry, updateEntry} from '../actions/entry.actions';
-import { EntryStore, Entry, DEFAULT_ENTRIES } from "./app.state";
-import { Observable, Subject } from "rxjs";
+import { DEFAULT_ENTRIES, EntryStore } from './app-state';
+import { Entry } from './entry';
 
 @Injectable()
 export class DataService {
-
-    private _tasksEntriesSubject = new Subject<any>();
-    public tasksEntries = this._tasksEntriesSubject.asObservable();
 
     public constructor(private _store: EntryStore) {
         this.loadDefaultData();

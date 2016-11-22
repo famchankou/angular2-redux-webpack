@@ -1,22 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { List } from 'immutable';
-import { Entry } from "../../services/app.state";
-import { DataService } from '../../services/app.data.service';
+import { DataService } from '../../services/app-data.service';
+import { Entry } from '../../services/entry';
 
 @Component({
     selector: 'entry-form',
-    templateUrl: './templates/entry.form.html',
-    styles: [require('!raw!less!./less/entry.form.less')]
+    templateUrl: './templates/entry-form.html',
+    styles: [require('!raw!less!./less/entry-form.less')]
 })
 
-export class EntryFormComponent implements OnInit {
+export class EntryFormComponent {
 
     public newRecord: string;
     public entries: List<Entry>;
 
     public constructor(private _dataService: DataService) { }
-
-    public ngOnInit(): void { }
 
     public getRemoveEntryAction(id: string): void {
         this.removeEntry(id);
@@ -27,10 +25,10 @@ export class EntryFormComponent implements OnInit {
     }
 
     public addEntry(newRecord: string): void {
-        if (!newRecord)
-            return;
-        this._dataService.addTaskEntry(newRecord);
-        this.newRecord = null;
+        if (newRecord) {
+            this._dataService.addTaskEntry(newRecord);
+            this.newRecord = null;
+        }
     }
 
     public removeEntry(id: string): void {

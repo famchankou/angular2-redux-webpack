@@ -1,5 +1,3 @@
-import { Entry } from '../services/app.state';
-
 export interface IEntryAction {
     type: string;
     id?: string;

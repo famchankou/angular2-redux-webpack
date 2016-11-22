@@ -1,15 +1,15 @@
 import { List } from 'immutable';
 import { IEntryAction } from '../actions/entry.actions';
-import { Entry } from '../services/app.state';
+import { Entry } from '../services/entry';
 
-export function entryReducer(state: List<Entry> = List<Entry>(), action: IEntryAction) {
+export function entryReducer(state: List<Entry> = List<Entry>(), action: IEntryAction): any {
     switch (action.type) {
         case 'ADD_ENTRY':
             return state.push(new Entry(action.record));
         case 'REMOVE_ENTRY':
             return state.delete(_findIndexById());
         case 'UPDATE_ENTRY':
-            return (<any>state).update(_findIndexById(), (entry: Entry) => {
+            return (state).update(_findIndexById(), (entry: Entry) => {
                 return {
                     id: entry.id,
                     record: entry.record,
@@ -20,7 +20,7 @@ export function entryReducer(state: List<Entry> = List<Entry>(), action: IEntryA
             return state;
     }
 
-    function _findIndexById() {
+    function _findIndexById(): number {
         return state.findIndex(entry => entry.id === action.id);
     }
 }

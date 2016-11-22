@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 
 export class SearchPipe implements PipeTransform {
-    public transform(value: any, key: string, term: string) {
+    public transform(value: any, key: string, term: string): any {
         return value.filter((item: any) => {
             if (item.hasOwnProperty(key)) {
                 if (term) {

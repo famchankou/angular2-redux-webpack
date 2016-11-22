@@ -1,12 +1,12 @@
-// Angular
-import '@angular/platform-browser';
-import '@angular/platform-browser-dynamic';
-import '@angular/core';
-import '@angular/common';
-import '@angular/http';
-import '@angular/router';
+// angular
+import "@angular/platform-browser";
+import "@angular/platform-browser-dynamic";
+import "@angular/core";
+import "@angular/common";
+import "@angular/http";
+import "@angular/router";
 
-// RxJS
+// libs
 import 'rxjs';
 import "immutable";
 import "ng-semantic";
