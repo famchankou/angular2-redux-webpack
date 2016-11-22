@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { List } from 'immutable';
-import { DataService } from '../../services/app-data.service';
-import { Entry } from '../../services/entry';
+import { DataService, Entry } from '../index';
 
 @Component({
     selector: 'entry-form',
     templateUrl: './templates/entry-form.html',
-    styles: [require('!raw!less!./less/entry-form.less')]
+    styles: [require('./less/entry-form.less')]
 })
 
 export class EntryFormComponent {
